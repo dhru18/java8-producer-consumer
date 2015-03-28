@@ -26,11 +26,11 @@ public class ProducerConsumer {
 	// Producer thread
 	private void startProducer() {
 
-		final MyProducer<String> anyProducer = new MyProducer<>(queue);
+		final MyProducer<String> myProducer = new MyProducer<>(queue);
 		final Supplier<String> supplier = () -> "Hello World";
 		new Thread(() -> {
 			for (int i = 0; i < MSG_NBR; i++) {
-				anyProducer.produce(supplier);
+				myProducer.produce(supplier);
 			}
 		}).start();
 	}
@@ -38,11 +38,11 @@ public class ProducerConsumer {
 	// Consumer thread
 	private void startConsumer() {
 
-		final MyConsumer<String> anyConsumer = new MyConsumer<>(queue);
+		final MyConsumer<String> myConsumer = new MyConsumer<>(queue);
 		final Consumer<String> consumer = (s) -> out.println("Consumed message: " + s);
 		new Thread(() -> {
 			for (int i = 0; i < MSG_NBR; i++)
-				anyConsumer.consumes(consumer);
+				myConsumer.consumes(consumer);
 		}).start();
 	}
 
