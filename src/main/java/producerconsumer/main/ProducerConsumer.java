@@ -8,6 +8,14 @@ import java.util.concurrent.BlockingQueue;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
+/**
+ * Starts 2 threads, a producer and a consumer
+ * <br>
+ * Both threads share the same BlockingQueue
+ * 
+ * @author Djallal Serradji
+ *
+ */
 public class ProducerConsumer {
 
 	private static final int MSG_NBR = 10;
