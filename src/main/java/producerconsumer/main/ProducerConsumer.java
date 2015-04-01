@@ -50,7 +50,7 @@ public class ProducerConsumer {
 		final Consumer<String> consumer = (s) -> out.println("Consumed message: " + s);
 		new Thread(() -> {
 			for (int i = 0; i < MSG_NBR; i++)
-				myConsumer.consumes(consumer);
+				myConsumer.consume(consumer);
 		}).start();
 	}
 
@@ -99,7 +99,7 @@ public class ProducerConsumer {
 		 * @param consumer
 		 *            Contains the logic on what to do with the retrieved object
 		 */
-		public void consumes(Consumer<T> consumer) {
+		public void consume(Consumer<T> consumer) {
 			try {
 				consumer.accept(queue.take());
 				
